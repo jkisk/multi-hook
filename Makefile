@@ -1,7 +1,7 @@
 VERSION         := 0.0.1
 
-PACK            := xyz
-PROJECT         := github.com/pulumi/pulumi-${PACK}
+PACK            := multihook
+PROJECT         := github.com/jkisk/multi-hook-${PACK}
 
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}

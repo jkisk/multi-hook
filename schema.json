@@ -1,25 +1,21 @@
 {
-    "name": "xyz",
+    "name": "multihook",
     "resources": {
-        "xyz:index:StaticPage": {
+        "multihook:index:Hook": {
             "isComponent": true,
             "inputProperties": {
-                "indexContent": {
-                    "type": "string",
-                    "description": "The HTML content for index.html."
-                }
+               
             },
             "requiredInputs": [
-                "indexContent"
+                "gitHubInfo": {
+                    "token":
+                    "repo":
+                }
             ],
             "properties": {
-                "bucket": {
-                    "$ref": "/aws/v4.0.0/schema.json#/resources/aws:s3%2Fbucket:Bucket",
-                    "description": "The bucket resource."
-                },
-                "websiteUrl": {
+                "readonlyUrl": {
                     "type": "string",
-                    "description": "The website URL."
+                    "description": "The hook URL."
                 }
             },
             "required": [
@@ -32,16 +28,18 @@
         "csharp": {
             "packageReferences": {
                 "Pulumi": "3.*",
-                "Pulumi.Aws": "4.*"
+                "Pulumi.Aws": "4.*",
+                "Pulumi.Github": "3.*"
             }
         },
         "go": {
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-xyz/sdk/go/xyz"
+            "importBasePath": "github.com/jkisk/multihook/sdk/go/multihook"
         },
         "nodejs": {
             "dependencies": {
-                "@pulumi/aws": "^4.0.0"
+                "@pulumi/aws": "^4.0.0",
+                "@pulumi/github": "^3.0"
             },
             "devDependencies": {
                 "typescript": "^3.7.0"
@@ -50,7 +48,8 @@
         "python": {
             "requires": {
                 "pulumi": ">=3.0.0,<4.0.0",
-                "pulumi-aws": ">=4.0.0,<5.0.0"
+                "pulumi-aws": ">=4.0.0,<5.0.0",
+                "pulumi-github": ">=3.0.0,<4.0.0"
             }
         }
     }

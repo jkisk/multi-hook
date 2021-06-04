@@ -17,11 +17,11 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-xyz/pkg/provider"
-	"github.com/pulumi/pulumi-xyz/pkg/version"
+	"github.com/jkisk/multihook/pkg/provider"
+	"github.com/jkisk/multihook/pkg/version"
 )
 
-var providerName = "xyz"
+var providerName = "multihook"
 
 func main() {
 	provider.Serve(providerName, version.Version, pulumiSchema)
