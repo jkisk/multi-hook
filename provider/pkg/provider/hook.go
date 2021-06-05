@@ -21,24 +21,24 @@ import (
 
 // The set of arguments for creating a Githhub webhook component resource.
 type HookArgs struct {
-	Org   pulumi.stringInput `pulumi:"org"`
+	Org   pulumi.StringInput `pulumi:"org"`
 	Repo  pulumi.StringInput `pulumi:"repo"`
-	Token pulumi.SecretInput `pulumi:"token"`
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 // The GHWebhook component resource.
 type Hook struct {
 	pulumi.ResourceState
 
-	Hook        *github.Hook        `pulumi:"hook"`
+	Hook        *github.RepositoryWebhook       `pulumi:"hook"`
 	readOnlyUrl pulumi.StringOutput `pulumi:"readonlyUrl"`
 }
 
 // NewHook creates a new...
 func NewHook(ctx *pulumi.Context,
-	name string, args *HookArgs, opts ...pulumi.ResourceOption) (*Hook, error) {
+	name string, args *github.RepositoryWebhookArgs, opts ...pulumi.ResourceOption) (*Hook, error) {
 	if args == nil {
-		args = &HookArgs{}
+		args = &github.RepositoryWebhookArgs{}
 	}
 
 	component := &Hook{}

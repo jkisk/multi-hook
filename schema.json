@@ -7,10 +7,6 @@
                
             },
             "requiredInputs": [
-                "gitHubInfo": {
-                    "token":
-                    "repo":
-                }
             ],
             "properties": {
                 "readonlyUrl": {
@@ -19,8 +15,6 @@
                 }
             },
             "required": [
-                "bucket",
-                "websiteUrl"
             ]
         }
     },

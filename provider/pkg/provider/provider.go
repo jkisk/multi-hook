@@ -16,6 +16,7 @@ package provider
 
 import (
 	"github.com/pkg/errors"
+	github "github.com/pulumi/pulumi-github/sdk/v4/go/github"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/provider"
@@ -37,7 +38,7 @@ func constructHook(ctx *pulumi.Context, name string, inputs provider.ConstructIn
 
 	// Copy the raw inputs to StaticPageArgs. `inputs.CopyTo` uses the types and `pulumi:` tags
 	// on the struct's fields to convert the raw values to the appropriate Input types.
-	args := &HookArgs{}
+	args := &github.RepositoryWebhookArgs{}
 	if err := inputs.CopyTo(args); err != nil {
 		return nil, errors.Wrap(err, "setting args")
 	}
